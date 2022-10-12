@@ -1,0 +1,52 @@
+@import '../../app/styles/variables.scss';
+
+
+.card {
+  background: $white;
+  padding: 30px 40px 40px;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 17px;
+
+  .user {
+    display: flex;
+    align-items: center;
+
+    .avatar {
+      border-radius: 50%;
+      margin-right: 20px;
+    }
+
+    .user_info {
+
+    }
+    .user_title {
+      color: $black;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+    .user_status {
+      font-size: 12px;
+      font-weight: 600;
+      color: $blue-500;
+    }
+  }
+
+  &_status {
+    font-size: 12px;
+    font-weight: 600;
+  }
+}
+
+
+
+
+
+.description {
+  font-size: 14px;
+  line-height: 1.5rem;
+}

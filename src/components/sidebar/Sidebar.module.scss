@@ -1,0 +1,60 @@
+@import '../../app/styles/variables.scss';
+
+.sidebar {
+  background: $white;
+  text-align: right;
+  padding: 87px 48px 48px 48px;
+  position: relative;
+}
+
+// .top_menu {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: stretch;
+//   height: 100%;
+// }
+
+
+.profile {
+  text-align: center;
+  color: $black;
+  &_img {
+      border-radius: 50%;
+      width: 85px;
+      height: 85px;
+      margin-bottom: 15px;
+    }
+    margin-bottom: 84px;
+}
+
+.nav {
+  &_item {
+    padding: 2px 24px;
+    font-size: 14px;
+    margin-bottom: 36px;
+    transition: border-left .2s;
+    &:hover {
+      border-left: 7px solid #2A8BF2;
+    }
+  }
+  &_icon {
+    width: 22px;
+    height: 22px;
+    margin-right: 17px;
+  }
+  &_link {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    cursor: pointer;
+  }
+}
+
+.logout {
+  position: absolute;
+  bottom: 42px;
+  left: 70px;
+  display: flex;
+  align-items: center;
+}
+

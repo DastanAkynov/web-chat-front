@@ -1,0 +1,16 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: auto 290px minmax(320px, 1630px) auto;
+  min-height: 100vh;
+  grid-template-areas: ". sidebar main .";
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.main {
+  grid-area: main;
+}
+
+
