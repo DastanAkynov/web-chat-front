@@ -1,6 +1,5 @@
-import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { ChatPage, HomePage } from '.'
+import { ChatPage, HomePage, Login, Register } from '.'
 import Layout from '../app/layout/Layout'
 
 const Routing = () => {
@@ -10,6 +9,10 @@ const Routing = () => {
           <Route element={<Layout/>} >
             <Route path="/" element={<HomePage />}/>
             <Route path="/chat" element={<ChatPage />}/>
+          </Route>
+          <Route path="auth" >
+            <Route path="register" element={<Register />}/>
+            <Route path="login" element={<Login />}/>
           </Route>
         </Route>
     </Routes>

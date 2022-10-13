@@ -1,0 +1,1 @@
+export {default as authRefucer} from './auth/auth.slice'

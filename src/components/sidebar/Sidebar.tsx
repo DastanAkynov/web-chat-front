@@ -5,8 +5,17 @@ import UserImage from '../../shared/assets/img/profile.png'
 import LogoutIcon from '../../shared/assets/icons/logout-icon.svg'
 import { Link } from 'react-router-dom'
 import { MenuList } from './Sidebar.data'
+import { useAppDispatch, useAppSelector } from '../../app/store/hooks'
+import { setLogout } from '../../modules/auth/auth.slice'
 
 export const Sidebar: React.FC<SidebarProps> = ({className, ...props}) => {
+  const dispatch = useAppDispatch()
+  const isAith = useAppSelector(state => state.auth.isAuth)
+
+  const logoutHandler = () => {
+    dispatch(setLogout())
+  }
+
   return (
     <section className={`${className} ${styles.sidebar}`}>
       <div className={styles.top_menu}>
@@ -26,10 +35,17 @@ export const Sidebar: React.FC<SidebarProps> = ({className, ...props}) => {
             ))
           }
         </nav>
-        <div className={styles.logout}>
-            <img src={LogoutIcon} alt="logout" className={styles.nav_icon} />
-            <Link to="#" className={styles.nav_link}>LOG OUT</Link>
-        </div>
+        {isAith ?
+          <div className={styles.logout}>
+              <img src={LogoutIcon} alt="logout" className={styles.nav_icon} />
+              <Link to="#" onClick={logoutHandler} className={styles.nav_link}>Выйти</Link>
+          </div>
+        :
+          <div className={styles.logout}>
+              <img src={LogoutIcon} alt="login" className={styles.nav_icon} />
+              <Link to="/auth/login" className={styles.nav_link}>Ввойти</Link>
+          </div>
+        }
       </div>
     </section>
   )
