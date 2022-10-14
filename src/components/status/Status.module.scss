@@ -1,0 +1,11 @@
+@import '../../app//styles/variables.scss';
+
+.online {
+  font-size: 12px;
+  color: $blue-500;
+}
+
+.offline {
+  font-size: 12px;
+  color: $red-500;
+}

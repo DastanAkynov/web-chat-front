@@ -1,7 +1,11 @@
 import { useEffect } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
+import { io } from 'socket.io-client';
 import { Sidebar } from '../../components';
+import { updateUserInList } from '../../modules/actions';
 import { setAuth } from '../../modules/auth/auth.slice';
+import { IUser } from '../../modules/user/user.interface';
+import socket from '../socket';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import styles from './Layout.module.scss';
 
@@ -20,6 +24,19 @@ const Layout = () => {
       dispatch(setAuth(authData))
     }
   }, [isAuth, navigate])
+
+
+  useEffect(() => {
+    socket.connect()
+    socket.on('updateUser', (data: IUser) => {
+    console.log('updateUser', data)
+     dispatch(updateUserInList(data))
+    })
+    return () => {
+      socket.disconnect()
+    }
+  }, [isAuth])
+
 
   
   return (

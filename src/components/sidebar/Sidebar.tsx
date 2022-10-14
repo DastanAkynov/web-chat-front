@@ -11,6 +11,7 @@ import { setLogout } from '../../modules/auth/auth.slice'
 export const Sidebar: React.FC<SidebarProps> = ({className, ...props}) => {
   const dispatch = useAppDispatch()
   const isAith = useAppSelector(state => state.auth.isAuth)
+  const user = useAppSelector(state => state.auth.user)
 
   const logoutHandler = () => {
     dispatch(setLogout())
@@ -21,7 +22,7 @@ export const Sidebar: React.FC<SidebarProps> = ({className, ...props}) => {
       <div className={styles.top_menu}>
         <div className={styles.profile}>
           <img className={styles.profile_img} src={UserImage} />
-          <h5 className={styles.profile_text}>Henry Jabbawockiez</h5>
+          <h5 className={styles.profile_text}>{user?.name}</h5>
         </div>
         <nav className={styles.nav}>
           {
