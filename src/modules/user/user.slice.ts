@@ -34,14 +34,6 @@ const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    updateUserInList(state, action: PayloadAction<IUser>) {
-      console.log(action.payload.online)
-      state.userList.forEach(el => {
-        if(el._id === action.payload._id) {
-          el.online = action.payload.online
-        }
-      })
-    }
   },
   extraReducers: (builder) => {
     builder
@@ -63,5 +55,5 @@ const userSlice = createSlice({
 })
 
 
-export const { updateUserInList}  = userSlice.actions
+export const {}  = userSlice.actions
 export default userSlice.reducer

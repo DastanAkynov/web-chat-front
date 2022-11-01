@@ -1,2 +1,2 @@
 export { register, login} from './auth/auth.slice'
-export { getUserList, updateUserInList } from './user/user.slice'
+export { getUserList } from './user/user.slice'
