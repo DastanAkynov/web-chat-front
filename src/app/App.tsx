@@ -7,9 +7,9 @@ import './styles'
 function App() {
   return (
     <Provider store={store}>
-      <BrowserRouter>
-        <Routing />
-      </BrowserRouter>
+        <BrowserRouter>
+          <Routing />
+        </BrowserRouter>
     </Provider>
   )
 }

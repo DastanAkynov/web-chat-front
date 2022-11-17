@@ -19,7 +19,7 @@ type UserState = {
   userList: IUser[],
   total: number,
   loading: boolean,
-  error: string | null
+  error: string | null,
 }
 
 const initialState: UserState = {
@@ -27,13 +27,27 @@ const initialState: UserState = {
   userList: [],
   total: 0,
   loading: false,
-  error:  null
+  error:  null,
 }
 
 const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
+    setUserOnline(state, action: PayloadAction<Pick<IUser, 'alias'>>) {
+      state.userList.forEach(user => {
+        if(user.alias === action.payload.alias) {
+          user.online = true
+        }
+      })
+    },
+    setUserListOnline(state, action: PayloadAction<string[]>) {
+      state.userList.forEach(el => {
+        if(action.payload.includes(el.alias)) {
+          el.online = true
+        }
+      })
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -55,5 +69,5 @@ const userSlice = createSlice({
 })
 
 
-export const {}  = userSlice.actions
+export const {setUserOnline, setUserListOnline}  = userSlice.actions
 export default userSlice.reducer

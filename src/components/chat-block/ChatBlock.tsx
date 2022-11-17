@@ -18,7 +18,6 @@ export const ChatBlock: React.FC<ChatBlockProps> = () => {
   const user = useAppSelector(state => state.user.userList.find(user => user._id === id)) as IUser
 
   if(!user) return null
-  console.log(user)
 
   return (
       <div className={styles.chat_block}>

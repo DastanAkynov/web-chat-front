@@ -30,7 +30,7 @@ const Login: React.FC = () => {
     <section className={styles.auth}>
       <div className={styles.wrapper}>
         <h2 className={styles.title}>Ввойти</h2>
-        <p className={styles.subtitle}>Нет аккаунта, хочу пройти <Link className={styles.link} to="/auth/register">регистрацию</Link></p>
+        <p className={styles.subtitle}>Нет аккаунта, хочу пройти <Link className={styles.link} to="/register">регистрацию</Link></p>
         <FormProvider {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
             <FormField name="alias" placeholder="Никнэйм" width="300px" />

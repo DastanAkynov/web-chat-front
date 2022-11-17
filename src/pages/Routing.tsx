@@ -1,22 +1,17 @@
 import { Route, Routes } from 'react-router-dom'
 import { ChatPage, HomePage, Login, Register } from '.'
 import Layout from '../app/layout/Layout'
-import { ChatBlock } from '../components'
 
 const Routing = () => {
   return (
       <Routes>
-        <Route path="/">
+          <Route path="/register" element={<Register />}/>
+          <Route path="/login" element={<Login />}/>
           <Route element={<Layout/>} >
-            <Route path="/" element={<HomePage />}/>
-            <Route path="/chat" element={<ChatPage />}/>
-            <Route path="/chat/:id" element={<ChatPage />} /> 
+              <Route index element={<HomePage />}/>
+              <Route path="/chat" element={<ChatPage />}/>
+              <Route path="/chat/:id" element={<ChatPage />} /> 
           </Route>
-          <Route path="auth" >
-            <Route path="register" element={<Register />}/>
-            <Route path="login" element={<Login />}/>
-          </Route>
-        </Route>
     </Routes>
   )
 }

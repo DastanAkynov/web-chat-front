@@ -43,7 +43,8 @@ type AuthState = {
   user: IUser | null,
   token: string | null,
   loading: boolean,
-  error: string | null
+  error: string | null,
+  online: boolean
 }
 
 const initialState: AuthState = {
@@ -51,7 +52,8 @@ const initialState: AuthState = {
   user: null,
   token: null,
   loading: false,
-  error:  null
+  error:  null,
+  online: false
 }
 
 const authSlice = createSlice({
@@ -76,6 +78,9 @@ const authSlice = createSlice({
       localStorage.setItem('user', JSON.stringify(action.payload.user))
       localStorage.setItem('token', JSON.stringify(action.payload.token))
     },
+     setMeOnline: (state) => {
+      state.online = true
+    },
   },
   extraReducers: (builder) => {
     builder    
@@ -94,5 +99,5 @@ const authSlice = createSlice({
 })
 
 
-export const {setLogout, setAuth}  = authSlice.actions
+export const {setLogout, setAuth, setMeOnline}  = authSlice.actions
 export default authSlice.reducer

@@ -30,7 +30,7 @@ const Register: React.FC = () => {
     <section className={styles.auth}>
       <div className={styles.wrapper}>
         <h2 className={styles.title}>Регистрация</h2>
-        <p className={styles.subtitle}><Link className={styles.link} to="/auth/login">Ввойти</Link> через аккаунт</p>
+        <p className={styles.subtitle}><Link className={styles.link} to="/login">Ввойти</Link> через аккаунт</p>
         <FormProvider {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
             <FormField name="name" placeholder="Имя" width="300px" />

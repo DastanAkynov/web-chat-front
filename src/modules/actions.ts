@@ -1,2 +1,2 @@
-export { register, login} from './auth/auth.slice'
-export { getUserList } from './user/user.slice'
+export { register, login, setMeOnline} from './auth/auth.slice'
+export { getUserList, setUserOnline, setUserListOnline} from './user/user.slice'

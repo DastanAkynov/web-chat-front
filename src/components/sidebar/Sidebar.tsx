@@ -10,8 +10,8 @@ import { setLogout } from '../../modules/auth/auth.slice'
 
 export const Sidebar: React.FC<SidebarProps> = ({className, ...props}) => {
   const dispatch = useAppDispatch()
-  const isAith = useAppSelector(state => state.auth.isAuth)
-  const user = useAppSelector(state => state.auth.user)
+  const isAuth = useAppSelector(state => state.auth.isAuth)
+  const {user, online} = useAppSelector(state => state.auth)
 
   const logoutHandler = () => {
     dispatch(setLogout())
@@ -23,6 +23,7 @@ export const Sidebar: React.FC<SidebarProps> = ({className, ...props}) => {
         <div className={styles.profile}>
           <img className={styles.profile_img} src={UserImage} />
           <h5 className={styles.profile_text}>{user?.name}</h5>
+          <b>{online ? 'Online' : 'Offline'}</b>
         </div>
         <nav className={styles.nav}>
           {
@@ -36,7 +37,7 @@ export const Sidebar: React.FC<SidebarProps> = ({className, ...props}) => {
             ))
           }
         </nav>
-        {isAith ?
+        {isAuth ?
           <div className={styles.logout}>
               <img src={LogoutIcon} alt="logout" className={styles.nav_icon} />
               <Link to="#" onClick={logoutHandler} className={styles.nav_link}>Выйти</Link>
@@ -44,7 +45,7 @@ export const Sidebar: React.FC<SidebarProps> = ({className, ...props}) => {
         :
           <div className={styles.logout}>
               <img src={LogoutIcon} alt="login" className={styles.nav_icon} />
-              <Link to="/auth/login" className={styles.nav_link}>Ввойти</Link>
+              <Link to="/login" className={styles.nav_link}>Ввойти</Link>
           </div>
         }
       </div>
